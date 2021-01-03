@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Chaos' Markdown
 subtitle: ''
-description: ''
+description: 'stay hungry, stay foolish.'
 keywords:
-author: John Doe
-language: en
+author:  chaos
+language: zh-CN
 timezone: ''
 
 # URL
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -106,3 +106,9 @@ deploy:
   type: 'git'
   repo: 'https://github.com/StefanChaos/StefanChaos.github.io'
   branch: 'master'
+
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 10000
