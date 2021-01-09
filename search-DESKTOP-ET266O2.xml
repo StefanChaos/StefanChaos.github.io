@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Github &amp; hexo for free blogs</title>
+    <url>/2021/01/03/Github-hexo-for-free-blogs/</url>
+    <content><![CDATA[<h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><ol>
+<li><a href="https://hexo.io/zh-cn/docs/">Hexo官网</a></li>
+<li><a href="http://theme-next.iissnan.com/theme-settings.html">主题Next官网</a></li>
+<li><a href="https://www.cnblogs.com/jie-fang/p/13445913.html">博客园文章，主要是环境准备</a></li>
+</ol>
+<h1 id="Github-amp-Hexo-建立博客"><a href="#Github-amp-Hexo-建立博客" class="headerlink" title="Github &amp; Hexo 建立博客"></a>Github &amp; Hexo 建立博客</h1><h2 id="Comments"><a href="#Comments" class="headerlink" title="Comments"></a>Comments</h2><ul>
+<li>优点：方便免费，一次准备好环境后，只需要进行写作上传即可。</li>
+<li>缺点：暂时还没有被搜索引擎抓取？（用来回顾学的东西）</li>
+</ul>
+<h2 id="Rough-Flow"><a href="#Rough-Flow" class="headerlink" title="Rough Flow"></a>Rough Flow</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><ul>
+<li>Github</li>
+<li>Git bash<ul>
+<li>官网下载，安装的时候注意各种选项是否勾选，细看（虽然不影响结果，使用舒适度上有区别）</li>
+<li>在vscode中设置terminal为bash，可以使用shell命令。</li>
+</ul>
+</li>
+<li>node.js<ul>
+<li>官网下载及其慢，找到版本后，<a href="https://developer.aliyun.com/mirror/NPM?from=tnpm">淘宝镜像</a></li>
+<li><code>npm -version</code> 测试</li>
+</ul>
+</li>
+<li>Hexo<ul>
+<li><a href="https://hexo.io/zh-cn/docs/">官网中文安装教程</a>, 安装<code>npm install -g hexo-cli</code>。</li>
+<li><code>npm install hexo-deploy-git --save</code>，防止depoly出现问题。</li>
+</ul>
+</li>
+<li>Next theme(在后面安装)</li>
+</ul>
+<h3 id="初次配置-Windows下使用vscode-bash-terminal-git-bash，流程和Linux下一样"><a href="#初次配置-Windows下使用vscode-bash-terminal-git-bash，流程和Linux下一样" class="headerlink" title="初次配置(Windows下使用vscode bash terminal/git bash，流程和Linux下一样)"></a>初次配置(Windows下使用vscode bash terminal/git bash，流程和Linux下一样)</h3><ol>
+<li>github操作添加ssh-key，新建一个<code>$&#123;MyAccountName&#125;.github.io</code>的repo。</li>
+<li>本地新建一个文件夹，方便同步建在OneDrive。</li>
+</ol>
+<ul>
+<li><code>mkdir -p ~/OnDrive/StefanChaos.github.io</code></li>
+</ul>
+<ol start="3">
+<li>初始化hexo</li>
+</ol>
+<ul>
+<li><code>cd ~/OnDrive/StefanChaos.github.io</code></li>
+<li><code>hexo init</code></li>
+<li><code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code> 安装next主题，并在<code>_config.yaml</code>中修改<code>theme: next</code>。</li>
+</ul>
+<ol start="4">
+<li>个性化功能</li>
+</ol>
+<ul>
+<li><code>code ./_config.yaml</code>修改title等，<a href="https://hexo.io/zh-cn/docs/">Hexo官网</a>。</li>
+<li><code>code ./themes/next/_config.yaml</code>修改排版，我改了codeblock/menu/search_local<a href="http://theme-next.iissnan.com/theme-settings.html">主题Next官网</a>。</li>
+</ul>
+<ol start="5">
+<li>配置tags &amp; categories</li>
+</ol>
+<ul>
+<li><code>hexo new page tags/categories</code>, 打开<code>source/tags/*.md</code>加入。根据两次安装分别选择对应的type写入。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">type: tags</span><br><span class="line"><span class="section"># type: categories</span></span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="6">
+<li>远程部署地址(重要)<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="comment">## Docs: https://hexo.io/docs/one-command-deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;git&#x27;</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">&#x27;https://github.com/StefanChaos/StefanChaos.github.io&#x27;</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">&#x27;master&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## for local search</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10000</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><p><code>hexo server</code>会在<code>http://localhost:4000</code>上生成网页预览。</p>
+<h3 id="上传到远端"><a href="#上传到远端" class="headerlink" title="上传到远端"></a>上传到远端</h3><ol>
+<li><code>hexo generate</code></li>
+<li><code>hexo deploy</code></li>
+</ol>
+<h3 id="日常使用流程"><a href="#日常使用流程" class="headerlink" title="日常使用流程"></a>日常使用流程</h3><ol>
+<li><code>hexo new &quot;xxxxxxx&quot;</code></li>
+<li><code>hexo server</code>预览效果</li>
+<li><code>hexo generate</code></li>
+<li><code>hexo deploy</code>上传到远端</li>
+</ol>
+<a id="more"></a>]]></content>
+      <categories>
+        <category>Tools</category>
+        <category>Write</category>
+      </categories>
+      <tags>
+        <tag>Blog</tag>
+        <tag>hexo</tag>
+        <tag>bash</tag>
+        <tag>vscode</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+</search>
